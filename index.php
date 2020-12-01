@@ -1,31 +1,52 @@
 <?php
-Class A{}
-
-Class B extends A
+Class A
 {
-	public function __construct($a, $b)
+	public function solve($a, $b)
 	{
-		$this->a=$a;
-		$this->b=$b;
+		if ($a==0)
+		{
+			return NULL;
+		}
+		else
+		{
+			return $this->x=-($b/$a);
+		}
 	}
-	protected $a;
-	protected $b;
-
+	protected $x;
 }
 
-Class C extends B
+Class B extends A 
 {
-	public function __construct($a,$b,$c)
+	protected function discriminant($a,$b,$c)
 	{
-		$this->c=$c;
-		parent::__construct($a,$b);
+		return $b**2-4*$a*$c;
+			
 	}
-	protected $c;
-}
+	public function quadratic_solve($a, $b,$c)
+	{
+		if($a==0)
+		{
+			return ($this->solve($a,$b));
+		}
+		
+		$d = $this->discriminant($a,$b,$c);
+		if($d<0)
+		{
+			return NULL;
+		}
+		if($d==0)
+		{
+			return $this->x= (-($b)+ sqrt($d));
+		}
+			
+		return $this->x=array((-($b)+ sqrt($d))/2*$a,(-($b)- sqrt($d))/2*$a);
+		}
+	}
 
-$a1=new A();
-$b2=new B($a1);
-$b3=new B($a1);
-$b4= new B($b2);
-$c5=new C($b3, $b4);
+
+$a=new A();
+$b=new B();
+$b->quadratic_solve(2,1,2);
+$a->solve(2,3);
+var_dump($a,$b);
 ?>
