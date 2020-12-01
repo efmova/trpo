@@ -14,6 +14,7 @@ include "efimova/EfimovaException.php";
 ini_set("display_errors", 1);
 error_reporting(-1);
 
+MyLog::log("Версия программы ".file_get_contents("./version"));
 $a = new Sqrt();
 try {
     echo "Введите 3 аргумента-" . "\n";
