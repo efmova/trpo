@@ -26,7 +26,7 @@ Class Sqrt extends Line implements EquationInterface
             return $this->X = array(-($b / (2 * $a)));
         }
         return $this->X = NULL;
-        
+        throw  new EfimovaException("Ошибка:уранение не имеет корней");
     }
 }
 
