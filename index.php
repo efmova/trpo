@@ -1,52 +1,18 @@
 <?php
-Class A
-{
-	public function solve($a, $b)
-	{
-		if ($a==0)
-		{
-			return NULL;
-		}
-		else
-		{
-			return $this->x=-($b/$a);
-		}
-	}
-	protected $x;
-}
+use efimova\Sqrt;
+use efimova\MyLog;
 
-Class B extends A 
-{
-	protected function discriminant($a,$b,$c)
-	{
-		return $b**2-4*$a*$c;
-			
-	}
-	public function quadratic_solve($a, $b,$c)
-	{
-		if($a==0)
-		{
-			return ($this->solve($a,$b));
-		}
-		
-		$d = $this->discriminant($a,$b,$c);
-		if($d<0)
-		{
-			return NULL;
-		}
-		if($d==0)
-		{
-			return $this->x= (-($b)+ sqrt($d));
-		}
-			
-		return $this->x=array((-($b)+ sqrt($d))/2*$a,(-($b)- sqrt($d))/2*$a);
-		}
-	}
+include "core/EquationInterface.php";
+include "core/LogInterface.php";
+include "core/LogAbstract.php";
+include "efimova/MyLog.php";
+include "efimova/Line.php";
+include "efimova/Sqrt.php";
 
+ini_set("display_errors", 1);
+error_reporting(-1);
 
-$a=new A();
-$b=new B();
-$b->quadratic_solve(2,1,2);
-$a->solve(2,3);
-var_dump($a,$b);
+MyLog::log("log 1");
+MyLog::log("log 2");
+MyLog::write();
 ?>
