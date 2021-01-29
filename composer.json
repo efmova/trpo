@@ -1,0 +1,25 @@
+{
+    "name": "efmova/trpo",
+    "type": "project",
+    "authors": [
+        {
+            "name": "efmova",
+            "email": "efimovadariaa@gmail.com"
+        }
+    ],
+    "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/rok9ru/trpo-core.git"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/efmova/efimova.git"
+    }
+],
+    "minimum-stability": "dev",
+    "require": {
+        "rok9ru/trpo-core":"^2.0",
+        "efmova/efimova":"^1.1"
+    }
+}
